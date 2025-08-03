@@ -16,15 +16,15 @@ const Footer = () => {
       <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row justify-center text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-gray-700">
 
         {/* Logo and About */}
-        <div className="md:w-1/3 px-4 pb-6 md:pb-0">
+        <div className="md:w-1/3 px-4 pb-6 md:pb-0 flex flex-col items-center text-center">
           
 
-          <p className="text-sm text-justify text-gray-300">
+          <p className="text-sm text-center mr-8 text-gray-300">
             Experience the wild beauty of Wasgamuwa with Wasgamu Safari — where nature, 
             adventure, and wildlife come together for an unforgettable journey.
           </p>
 
-          <Link to="/termspolicy" className="flex flex-row space-x-4 text-sm text-gray-400 mt-20 justify-center md:justify-start">
+          <Link to="/termspolicy" className="flex flex-row space-x-4 text-sm text-gray-400 mt-20  md:justify-start">
             <div className="hover:text-white transition-colors duration-200 cursor-pointer">
               Terms & Conditions
             </div>
@@ -35,9 +35,9 @@ const Footer = () => {
         </div>
 
         {/* Services */}
-        <div className="md:w-1/3 px-6 py-6 md:py-0">
+        <div className="md:w-1/3 px-6 py-6 md:py-0 text-center">
           <h3 className="text-md font-semibold mb-3 ">Quick Access</h3>
-          <ul className="grid gap-x-4 text-sm text-gray-300">
+          <ul className="grid gap-x-4 gap-y-4 text-sm text-gray-300">
             <Link to="/" className="hover:text-green-600">Home</Link>
             <Link to="/gallery" className="hover:text-green-600">Gallery</Link>
             <Link to="/safari-packages" className="hover:text-green-600">Packages</Link>
@@ -47,8 +47,8 @@ const Footer = () => {
         </div>
 
         {/* Contact */}
-        <div className="md:w-1/3 px-4 pt-6 md:pt-0 flex flex-col items-center md:items-start">
-          <h3 className="text-md font-semibold mb-3">Contact</h3>
+        <div className="md:w-1/3 px-4 pt-6 md:pt-0 flex flex-col items-center text-center">
+          <h3 className="text-md text-center font-semibold mb-3">Contact</h3>
           <p className="text-sm text-gray-300 leading-relaxed">
             No. 110/1A, Cotta Road<br />
             Colombo 08, Sri Lanka<br /><br />

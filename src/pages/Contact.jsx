@@ -1,16 +1,33 @@
 import React from "react";
 import PageBanner from "../components/PageBanner";
 import contactImg from "../assets/safari3.webp";
+import bgPattern from "../assets/bgImg.webp";
 
 const Contact = () => {
   return (
-    <>
+    <div>
       <PageBanner
         title="Get in Touch"
         subtitle="Reach out and start your wild adventure"
         backgroundImage={contactImg}
       />
-      <div className="max-w-4xl mx-auto p-6 mt-12 mb-24">
+
+      {/* Background pattern layer */}
+      <div className="relative py-16">
+        {/* Background pattern with opacity */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url(${bgPattern})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "cover",
+          }}
+        />
+
+              <div className="max-w-4xl mx-auto p-6 mt-12 mb-24">
+
+       
+
         <form className="grid grid-cols-1 gap-4">
           <input type="text" placeholder="Name" className="p-3 border rounded" />
           <input type="email" placeholder="Email" className="p-3 border rounded" />
@@ -20,7 +37,8 @@ const Contact = () => {
           </button>
         </form>
       </div>
-    </>
+      </div>
+    </div>
   );
 };
 

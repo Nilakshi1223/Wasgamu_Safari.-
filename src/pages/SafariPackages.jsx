@@ -1,6 +1,8 @@
 import React from "react";
+import { motion } from "framer-motion";
 import PageBanner from "../components/PageBanner";
 import packagesImg from "../assets/safari3.webp";
+import bgPattern from "../assets/bgImg.webp";
 
 const SafariPackages = () => {
   const morningPackages = [
@@ -47,11 +49,15 @@ const SafariPackages = () => {
   };
 
   const PackageCard = ({ pkg }) => (
-    <div
-      className="rounded-lg shadow hover:shadow-xl transition overflow-hidden flex flex-col border h-full"
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="rounded-lg shadow hover:shadow-xl transition overflow-hidden flex flex-col h-full border"
       style={{ borderColor: "#a7c957" }}
     >
-      {/* Image with title overlay */}
+      {/* Image */}
       <div className="relative h-48 overflow-hidden flex-shrink-0">
         <img
           src={pkg.image}
@@ -60,24 +66,19 @@ const SafariPackages = () => {
         />
         <div
           className="absolute bottom-0 left-0 right-0 p-3"
-          style={{ backgroundColor: "rgba(56, 102, 65, 0.7)" }} // #386641 transparent
+          style={{ backgroundColor: "rgba(56, 102, 65, 0.7)" }}
         >
           <h3 className="text-white text-lg font-semibold">{pkg.title}</h3>
         </div>
       </div>
 
-      {/* Details below image */}
-      <div
-        className="p-6 flex flex-col flex-grow"
-        style={{ backgroundColor: "#f9f9f9" }}
-      >
-        <p className="mb-1 font-medium" style={{ color: "#6a994e" }}>
-          {pkg.time}
-        </p>
+      {/* Content */}
+      <div className="p-6 flex flex-col flex-grow bg-[#f9f9f9]">
+        <p className="mb-1 font-medium text-[#6a994e]">{pkg.time}</p>
         <p className="mb-4 text-gray-700 flex-grow">{pkg.note}</p>
 
         <button
-          className="py-2 rounded mb-2 transition mt-auto"
+          className="py-2 rounded mb-2 mt-auto transition"
           style={{
             backgroundColor: "#ffc000",
             color: "#386641",
@@ -94,11 +95,9 @@ const SafariPackages = () => {
           Book Now
         </button>
 
-        <p className="text-xs" style={{ color: "#6a994e" }}>
-          {pkg.footnote}
-        </p>
+        <p className="text-xs text-[#6a994e]">{pkg.footnote}</p>
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
@@ -108,25 +107,46 @@ const SafariPackages = () => {
         subtitle="Choose the perfect adventure for you"
         backgroundImage={packagesImg}
       />
-      <div className="max-w-6xl mx-auto px-6 mt-12 mb-24 space-y-12">
-        {/* Morning Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
-          {morningPackages.map((pkg, idx) => (
-            <PackageCard key={idx} pkg={pkg} />
-          ))}
-        </div>
 
-        {/* Afternoon Row */}
-        <div className=" flex grid-cols-1 md:grid-cols-1 gap-6 auto-rows-fr">
-          {afternoonPackages.map((pkg, idx) => (
-            <PackageCard key={idx} pkg={pkg} />
-          ))}
-        </div>
+      {/* Background pattern layer */}
+      <div className="relative py-16">
+        {/* Background pattern with opacity */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url(${bgPattern})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "cover",
+          }}
+        />
 
-        {/* Full Day Row - centered single card */}
-        <div className="flex justify-center">
-          <div className="w-full max-w-md h-full">
-            <PackageCard pkg={fullDayPackage} />
+        {/* Foreground content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-12">
+          {/* Morning Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
+            {morningPackages.map((pkg, idx) => (
+              <div key={idx} className="h-full">
+                <PackageCard pkg={pkg} />
+              </div>
+            ))}
+          </div>
+
+          {/* Afternoon Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
+            {afternoonPackages.map((pkg, idx) => (
+              <div key={idx} className="h-full">
+                <PackageCard pkg={pkg} />
+              </div>
+            ))}
+          </div>
+
+          {/* Full Day Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
+            <div className="h-full md:col-span-2 flex justify-center">
+              <div className="w-full md:w-1/2 h-full">
+                <PackageCard pkg={fullDayPackage} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

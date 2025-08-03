@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
 
 const navLinkClass =
-  "relative text-gray-800 hover:text-[#6a994e] transition duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-6 after:h-[2px] after:bg-[#6a994e] after:transition-all after:duration-300";
+  "relative text-[#386641] font-medium hover:text-[#6a994e] transition duration-300 after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 hover:after:w-6 after:h-[2px] after:bg-[#6a994e] after:transition-all after:duration-300";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 bg-white shadow-md">
-      {/* Top Right Quarter Circle for Desktop */}
+      {/* Desktop Top Right Quarter Circle */}
       <div className="hidden md:block absolute top-0 right-0 z-50">
         <div
           className="group w-14 h-14 md:w-20 md:h-20 bg-[#ffc000] rounded-bl-full overflow-hidden relative cursor-pointer transition-all duration-500 hover:w-48 hover:h-16"
@@ -19,7 +19,10 @@ const Navbar = () => {
         >
           <div
             className="absolute inset-0"
-            style={{ borderBottomLeftRadius: "45%", transition: "border-radius 0.5s ease" }}
+            style={{
+              borderBottomLeftRadius: "45%",
+              transition: "border-radius 0.5s ease",
+            }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderBottomLeftRadius = "45%";
             }}
@@ -31,15 +34,16 @@ const Navbar = () => {
               <FiPhone />
             </div>
 
-            <div className="flex flex-col items-center justify-center h-full text-[#386641] text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 whitespace-nowrap">
-              <p>📞 +94 77 123 4567</p>
-              <p>📞 +94 71 765 4321</p>
+            {/* Show numbers only on md and above */}
+            <div className="flex-col items-center justify-center h-full text-[#386641] text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 whitespace-nowrap hidden md:flex">
+              <p> +94 77 123 4567</p>
+              <p> +94 71 765 4321</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating Mobile Circle Button */}
+      {/* Mobile Floating Circle for Calls */}
       <div className="md:hidden fixed bottom-4 right-4 z-50">
         <div
           onClick={() => setMobileCallOpen(!mobileCallOpen)}
@@ -65,7 +69,7 @@ const Navbar = () => {
           Wasgamu Safari
         </Link>
 
-        {/* Navigation Links (Desktop) */}
+        {/* Desktop Nav Links */}
         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-6">
           <Link to="/" className={navLinkClass}>Home</Link>
           <Link to="/gallery" className={navLinkClass}>Gallery</Link>
@@ -74,7 +78,7 @@ const Navbar = () => {
           <Link to="/contact" className={navLinkClass}>Contact</Link>
         </div>
 
-        {/* Hamburger Menu */}
+        {/* Mobile Hamburger Button */}
         <div className="md:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl text-[#386641]">
             {menuOpen ? <FiX /> : <FiMenu />}
