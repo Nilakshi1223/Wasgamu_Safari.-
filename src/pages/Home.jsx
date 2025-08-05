@@ -21,8 +21,22 @@ const Home = () => {
       >
         <FaWhatsapp className="text-[#a7c957] text-2xl" />
         <div className="flex flex-col text-[#a7c957] font-semibold leading-tight">
-          <span className="text-lg">+94 77 123 4567</span>
-          <span className="text-sm opacity-80">+94 71 765 4321</span>
+          <a
+            href="https://wa.me/94779278089"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg hover:underline"
+          >
+            +94 77 927 8089
+          </a>
+          <a
+            href="https://wa.me/94717654321"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm opacity-80 hover:underline"
+          >
+            +94 71 765 4321***
+          </a>
         </div>
       </div>
 

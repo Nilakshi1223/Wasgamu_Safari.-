@@ -122,6 +122,54 @@ const SafariPackages = () => {
     </motion.div>
   );
 
+  // A reusable Section component for consistency and less repetition
+  const InfoSection = ({ title, description, btnText }) => (
+    <section className="relative bg-[#fdfbec] py-16 overflow-hidden mt-12">
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `url(${bgPattern})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "cover",
+        }}
+      ></div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-3xl sm:text-4xl font-extrabold text-[#386641] mb-4"
+        >
+          {title}
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-gray-700 text-md sm:text-lg max-w-3xl mx-auto"
+        >
+          {description}
+        </motion.p>
+
+        {btnText && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-yellow-400 hover:bg-[#a7c957] text-[#386641] hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition mt-8"
+          >
+            {btnText}
+          </motion.button>
+        )}
+      </div>
+    </section>
+  );
+
   return (
     <>
       <PageBanner
@@ -149,7 +197,52 @@ const SafariPackages = () => {
             ))}
           </div>
         </div>
+
+
+
+
+
+
+{/* Bungalow Booking Section */}
+      <InfoSection
+        title="Stay Inside the Wild!"
+        description={
+          <>
+            Wasgamuwa National Park has 3 beautiful bungalows named{" "}
+            <span className="font-semibold text-[#6a994e]">Kadurupitiya</span>,{" "}
+            <span className="font-semibold text-[#6a994e]">Mahaweli</span>, and{" "}
+            <span className="font-semibold text-[#6a994e]">Wavulambe</span>. If you wish to
+            stay overnight surrounded by nature, we can help you book your perfect
+            wilderness getaway.
+          </>
+        }
+        btnText="INQUIRE BUNGALOW BOOKING"
+      />
+
+      {/* Hotel Room Booking Section */}
+      <InfoSection
+        title="Hotel Room Booking Outside the Park"
+        description="We can book the number of hotel rooms you want outside the national park, ensuring you have comfortable and convenient accommodations near your safari adventure."
+        btnText="BOOK HOTEL ROOMS"
+      />
+
+      {/* Riveston Safari Section */}
+      <InfoSection
+        title="Safari for Riveston Journey"
+        description="We provide safaris for the Riveston journey — the adventurous route that guests taking the Wasgamuwa journey love. Experience a unique safari with us!"
+        btnText="BOOK RIVESTON SAFARI"
+      />
+
+
+
+
+
+
+
+
       </div>
+
+      
     </>
   );
 };

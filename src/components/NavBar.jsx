@@ -36,8 +36,8 @@ const Navbar = () => {
 
             {/* Show numbers only on md and above */}
             <div className="flex-col items-center justify-center h-full text-[#386641] text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 whitespace-nowrap hidden md:flex">
-              <p> +94 77 123 4567</p>
-              <p> +94 71 765 4321</p>
+              <p> +94 71 271 0140</p>
+              <p> +94 71 765 4321***</p>
             </div>
           </div>
         </div>
@@ -53,8 +53,8 @@ const Navbar = () => {
         >
           {mobileCallOpen ? (
             <div className="text-xs text-center px-3 whitespace-nowrap font-semibold">
-              <p>+94 77 123 4567</p>
-              <p>+94 71 765 4321</p>
+              <p>+94 71 271 0140</p>
+              <p>+94 71 765 4321***</p>
             </div>
           ) : (
             <FiPhone className="text-2xl" />

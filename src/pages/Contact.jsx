@@ -44,15 +44,15 @@ const Contact = () => {
           <ul className="space-y-6 text-gray-800 text-lg w-full max-w-md">
             <li className="flex items-center gap-4">
               <FiPhone className="text-green-600 text-2xl" />
-              <span>+94 77 123 4567</span>
+              <span>+94 71 271 0140</span>
             </li>
             <li className="flex items-center gap-4">
               <FiPhone className="text-green-600 text-2xl" />
-              <span>+94 71 765 4321</span>
+              <span>+94 71 765 4321****</span>
             </li>
             <li className="flex items-center gap-4">
               <FiMail className="text-green-600 text-2xl" />
-              <span>contact@wasgamusafari.com</span>
+              <span>Info@wasgamusafari.com</span>
             </li>
             <li className="flex items-center gap-4">
               <FiMapPin className="text-green-600 text-2xl" />
@@ -60,7 +60,7 @@ const Contact = () => {
             </li>
             <li className="flex items-center gap-4">
               <FaWhatsapp className="text-green-600 text-2xl" />
-              <span>+94 77 123 4567 (WhatsApp)</span>
+              <span>+94 77 927 8089 (WhatsApp)</span>
             </li>
             <li className="flex items-center gap-4">
               <FaFacebook className="text-green-600 text-2xl" />
@@ -70,7 +70,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="underline hover:text-green-700"
               >
-                facebook.com/wasgamusafari
+                facebook.com/
               </a>
             </li>
           </ul>
