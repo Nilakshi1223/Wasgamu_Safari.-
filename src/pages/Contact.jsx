@@ -1,7 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion";
 import PageBanner from "../components/PageBanner";
 import contactImg from "../assets/safari3.webp";
 import bgPattern from "../assets/bgImg.webp";
+import { FaWhatsapp, FaFacebook } from "react-icons/fa";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import logo from "../assets/logo.webp";
 
 const Contact = () => {
   return (
@@ -24,19 +28,53 @@ const Contact = () => {
           }}
         />
 
-              <div className="max-w-4xl mx-auto p-6 mt-12 mb-24">
+        {/* Animated contact info container */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-4xl mx-auto p-6 mt-12 mb-24 bg-white bg-opacity-10 rounded-lg shadow-md relative z-10 flex flex-col items-center"
+        >
+          {/* Logo image */}
+          <img src={logo} alt="Wasgamu Safari Logo" className="w-32 mb-6" />
 
-       
-
-        <form className="grid grid-cols-1 gap-4">
-          <input type="text" placeholder="Name" className="p-3 border rounded" />
-          <input type="email" placeholder="Email" className="p-3 border rounded" />
-          <textarea placeholder="Message" rows="5" className="p-3 border rounded" />
-          <button type="submit" className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
-            Send
-          </button>
-        </form>
-      </div>
+          <h2 className="text-3xl font-semibold mb-8 text-green-700 text-center">
+            Contact Details
+          </h2>
+          <ul className="space-y-6 text-gray-800 text-lg w-full max-w-md">
+            <li className="flex items-center gap-4">
+              <FiPhone className="text-green-600 text-2xl" />
+              <span>+94 77 123 4567</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <FiPhone className="text-green-600 text-2xl" />
+              <span>+94 71 765 4321</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <FiMail className="text-green-600 text-2xl" />
+              <span>contact@wasgamusafari.com</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <FiMapPin className="text-green-600 text-2xl" />
+              <span>Wasgamuwa National Park Area, Sri Lanka</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <FaWhatsapp className="text-green-600 text-2xl" />
+              <span>+94 77 123 4567 (WhatsApp)</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <FaFacebook className="text-green-600 text-2xl" />
+              <a
+                href="https://www.facebook.com/wasgamusafari"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-green-700"
+              >
+                facebook.com/wasgamusafari
+              </a>
+            </li>
+          </ul>
+        </motion.div>
       </div>
     </div>
   );

@@ -25,8 +25,8 @@ const Gallery = () => {
   return (
     <div>
       <PageBanner
-        title="Safari Packages"
-        subtitle="Choose the perfect adventure for you"
+        title="Safari Gallery"
+        subtitle="Discover the wild through our safari moments."
         backgroundImage={packagesImg}
       />
 
@@ -48,7 +48,7 @@ const Gallery = () => {
             Wildlife Moments
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {safariImages.map((img, index) => (
               <motion.div
                 key={`asset-${index}`}

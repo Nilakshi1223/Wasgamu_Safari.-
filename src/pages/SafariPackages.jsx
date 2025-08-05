@@ -3,50 +3,50 @@ import { motion } from "framer-motion";
 import PageBanner from "../components/PageBanner";
 import packagesImg from "../assets/safari3.webp";
 import bgPattern from "../assets/bgImg.webp";
+import elephantIcon from "../assets/elephent1.webp"; // 👈 Imported elephant icon
 
 const SafariPackages = () => {
-  const morningPackages = [
+  const packages = [
     {
-      title: "6 Hours Safari (Morning)",
-      time: "6.00 am - 12.00 pm",
-      note: "Best for Bird watching",
-      footnote: "*Soft drink is added",
+      title: "Morning Package",
+      time: "06.00 AM TO 10.00 A.M",
+      note: "SPECIAL BIRDS",
+      features: [
+        "Private Safari Jeep",
+        "Professional Safari Driver",
+        "Park Entrance Ticket",
+        "Driver & Jeep Entrance Fee",
+        "Service fee with VAT",
+      ],
       image: packagesImg,
     },
     {
-      title: "4 Hours Safari (Morning)",
-      time: "6.00 am - 10.00 am",
-      note: "Best for Bird watching",
-      footnote: "*Soft drink is added",
+      title: "Evening Package",
+      time: "1.00 PM TO 6.00 P.M",
+      note: "ELEPHANT ZONE",
+      features: [
+        "Private Safari Jeep",
+        "Experienced Safari Driver",
+        "Park Ticket Included",
+        "Driver + Jeep Fee",
+        "Snacks & VAT Included",
+      ],
+      image: packagesImg,
+    },
+    {
+      title: "Full Day Package",
+      time: "06.00 AM TO 06.00 P.M",
+      note: "BIRDS, ELEPHANTS, TIGERS, BEARS",
+      features: [
+        "Full-Day Jeep Hire",
+        "All Park & Driver Fees",
+        "Lunch + Soft Drink",
+        "Spot Rare Animals",
+        "Best Value Deal",
+      ],
       image: packagesImg,
     },
   ];
-
-  const afternoonPackages = [
-    {
-      title: "6 Hours Safari (Afternoon)",
-      time: "12.00 pm - 6.00 pm",
-      note: "Best for elephants watching",
-      footnote: "*Soft drink is added",
-      image: packagesImg,
-    },
-    {
-      title: "4 Hours Safari (Afternoon)",
-      time: "2.00 pm - 6.00 pm",
-      note: "Best for elephants watching",
-      footnote: "*Soft drink is added",
-      image: packagesImg,
-    },
-  ];
-
-  const fullDayPackage = {
-    title: "Full Day - 12 Hours Safari",
-    time: "6.00 am - 6.00 pm",
-    note:
-      "Opportunities to observe a variety of wildlife, including birds, elephants, deer, leopards, and occasionally bears",
-    footnote: "*Soft drink and Lunch",
-    image: packagesImg,
-  };
 
   const PackageCard = ({ pkg }) => (
     <motion.div
@@ -54,49 +54,71 @@ const SafariPackages = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="rounded-lg shadow hover:shadow-xl transition overflow-hidden flex flex-col h-full border"
-      style={{ borderColor: "#a7c957" }}
+      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden border flex flex-col p-4
+           max-w-full sm:max-w-[320px] md:max-w-[380px] mx-auto"
     >
-      {/* Image */}
-      <div className="relative h-48 overflow-hidden flex-shrink-0">
+      {/* Image with overlaid title */}
+      <div className="relative w-full h-64">
         <img
           src={pkg.image}
           alt={pkg.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-lg"
         />
-        <div
-          className="absolute bottom-0 left-0 right-0 p-3"
-          style={{ backgroundColor: "rgba(56, 102, 65, 0.7)" }}
-        >
-          <h3 className="text-white text-lg font-semibold">{pkg.title}</h3>
+        <div className="absolute bottom-0 w-full bg-yellow-400 bg-opacity-90 text-center py-2 rounded-b-lg">
+          <h3 className="text-[#386641] font-bold text-lg uppercase">
+            {pkg.title}
+          </h3>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-grow bg-[#f9f9f9]">
-        <p className="mb-1 font-medium text-[#6a994e]">{pkg.time}</p>
-        <p className="mb-4 text-gray-700 flex-grow">{pkg.note}</p>
-
-        <button
-          className="py-2 rounded mb-2 mt-auto transition"
-          style={{
-            backgroundColor: "#ffc000",
-            color: "#386641",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#a7c957";
-            e.currentTarget.style.color = "white";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#ffc000";
-            e.currentTarget.style.color = "#386641";
-          }}
-        >
-          Book Now
-        </button>
-
-        <p className="text-xs text-[#6a994e]">{pkg.footnote}</p>
+      {/* Features List */}
+      <div className="py-4 text-sm flex-grow">
+        <ul className="space-y-1 text-gray-700">
+          {pkg.features.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-2">
+              <img
+                src={elephantIcon}
+                alt="Elephant Icon"
+                className="w-6 h-6 mt-1"
+              />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      {/* Wavy Note Ribbon */}
+      <div className="relative w-full bg-[#45433f] text-[#ffc000] text-sm text-center py-2 font-semibold shadow-md shadow-black/20 overflow-hidden mt-4">
+        <svg
+          className="absolute top-0 left-0 h-full w-8"
+          viewBox="0 0 20 100"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M20 0 Q10 50 20 100 L0 100 L0 0 Z" fill="#45433f" />
+        </svg>
+        <div className="relative z-10 mx-8">{pkg.note}</div>
+        <svg
+          className="absolute top-0 right-0 h-full w-8 rotate-180"
+          viewBox="0 0 20 100"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M20 0 Q10 50 20 100 L0 100 L0 0 Z" fill="#45433f" />
+        </svg>
+      </div>
+
+      {/* Time */}
+      <div className="text-center text-sm py-1 text-[#386641] font-medium mt-2">
+        {pkg.time}
+      </div>
+
+      {/* Button */}
+      <button
+        className="bg-yellow-400 text-[#386641] font-bold py-2 text-sm mt-3 hover:bg-[#a7c957] hover:text-white transition rounded-md"
+      >
+        BOOK NOW!
+      </button>
     </motion.div>
   );
 
@@ -108,9 +130,8 @@ const SafariPackages = () => {
         backgroundImage={packagesImg}
       />
 
-      {/* Background pattern layer */}
       <div className="relative py-16">
-        {/* Background pattern with opacity */}
+        {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -121,32 +142,11 @@ const SafariPackages = () => {
         />
 
         {/* Foreground content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-12">
-          {/* Morning Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
-            {morningPackages.map((pkg, idx) => (
-              <div key={idx} className="h-full">
-                <PackageCard pkg={pkg} />
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {packages.map((pkg, idx) => (
+              <PackageCard key={idx} pkg={pkg} />
             ))}
-          </div>
-
-          {/* Afternoon Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
-            {afternoonPackages.map((pkg, idx) => (
-              <div key={idx} className="h-full">
-                <PackageCard pkg={pkg} />
-              </div>
-            ))}
-          </div>
-
-          {/* Full Day Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 auto-rows-fr">
-            <div className="h-full md:col-span-2 flex justify-center">
-              <div className="w-full md:w-1/2 h-full">
-                <PackageCard pkg={fullDayPackage} />
-              </div>
-            </div>
           </div>
         </div>
       </div>

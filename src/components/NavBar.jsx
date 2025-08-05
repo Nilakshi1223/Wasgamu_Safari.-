@@ -47,14 +47,14 @@ const Navbar = () => {
       <div className="md:hidden fixed bottom-4 right-4 z-50">
         <div
           onClick={() => setMobileCallOpen(!mobileCallOpen)}
-          className={`cursor-pointer transition-all duration-500 bg-[#ffc000] text-[#386641] shadow-lg ${
-            mobileCallOpen ? "w-56 h-20 rounded-[45%]" : "w-16 h-16 rounded-full"
-          } flex items-center justify-center`}
+          className={`cursor-pointer transition-all duration-500 bg-[#ffc000] text-[#386641] shadow-lg flex items-center justify-center
+            ${mobileCallOpen ? "w-40 h-16 rounded-2xl px-4" : "w-16 h-16 rounded-full"}
+          `}
         >
           {mobileCallOpen ? (
-            <div className="text-xs text-center px-3">
-              <p>📞 +94 77 123 4567</p>
-              <p>📞 +94 71 765 4321</p>
+            <div className="text-xs text-center px-3 whitespace-nowrap font-semibold">
+              <p>+94 77 123 4567</p>
+              <p>+94 71 765 4321</p>
             </div>
           ) : (
             <FiPhone className="text-2xl" />
@@ -65,22 +65,44 @@ const Navbar = () => {
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-green-700">
+        <Link
+          to="/"
+          className="text-2xl font-bold text-green-700"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           Wasgamu Safari
         </Link>
 
         {/* Desktop Nav Links */}
         <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-6">
-          <Link to="/" className={navLinkClass}>Home</Link>
-          <Link to="/gallery" className={navLinkClass}>Gallery</Link>
-          <Link to="/safari-packages" className={navLinkClass}>Packages</Link>
-          <Link to="/about" className={navLinkClass}>About</Link>
-          <Link to="/contact" className={navLinkClass}>Contact</Link>
+          <Link
+            to="/"
+            className={navLinkClass}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Home
+          </Link>
+          <Link to="/gallery" className={navLinkClass}>
+            Gallery
+          </Link>
+          <Link to="/safari-packages" className={navLinkClass}>
+            Packages
+          </Link>
+          <Link to="/about" className={navLinkClass}>
+            About
+          </Link>
+          <Link to="/contact" className={navLinkClass}>
+            Contact
+          </Link>
         </div>
 
         {/* Mobile Hamburger Button */}
         <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="text-2xl text-[#386641]">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-2xl text-[#386641]"
+            aria-label="Toggle menu"
+          >
             {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
@@ -90,11 +112,44 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden px-6 pb-4">
           <div className="flex flex-col space-y-2 bg-white rounded-lg shadow-md p-4">
-            <Link to="/" className={navLinkClass} onClick={() => setMenuOpen(false)}>Home</Link>
-            <Link to="/gallery" className={navLinkClass} onClick={() => setMenuOpen(false)}>Gallery</Link>
-            <Link to="/safari-packages" className={navLinkClass} onClick={() => setMenuOpen(false)}>Packages</Link>
-            <Link to="/about" className={navLinkClass} onClick={() => setMenuOpen(false)}>About</Link>
-            <Link to="/contact" className={navLinkClass} onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link
+              to="/"
+              className={navLinkClass}
+              onClick={() => {
+                setMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+            >
+              Home
+            </Link>
+            <Link
+              to="/gallery"
+              className={navLinkClass}
+              onClick={() => setMenuOpen(false)}
+            >
+              Gallery
+            </Link>
+            <Link
+              to="/safari-packages"
+              className={navLinkClass}
+              onClick={() => setMenuOpen(false)}
+            >
+              Packages
+            </Link>
+            <Link
+              to="/about"
+              className={navLinkClass}
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className={navLinkClass}
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </Link>
           </div>
         </div>
       )}

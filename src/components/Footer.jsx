@@ -68,7 +68,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-sm text-gray-500 mt-10 border-t border-gray-800 pt-4">
-        © 2025 Wasgamu Safari, All rights reserved. Developed by Art Avenue.
+        © 2025 Wasgamu Safari, Developed by Art Avenue. All rights reserved.
       </div>
     </footer>
   );
