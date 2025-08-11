@@ -13,6 +13,14 @@ import {
 } from "react-icons/fa";
 import CountUp from "react-countup";
 
+import SEO from "../components/SEO";
+
+// Add your gallery images here
+import gallery1 from "../assets/gallery1.webp";
+import gallery2 from "../assets/gallery2.webp";
+import gallery3 from "../assets/gallery3.webp";
+import gallery4 from "../assets/gallery4.webp";
+
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
@@ -30,6 +38,12 @@ const About = () => {
 
   return (
     <>
+    <SEO
+  title="About Us – Wasgamu Safari"
+  description="Learn about Wasgamu Safari, our values, our guides, and what makes us the best safari provider in Wasgamuwa National Park."
+  keywords="About Wasgamu Safari, Safari Team, Wildlife Guides"
+/>
+
       <PageBanner
         title="About Wasgamu Safari"
         subtitle="Discover our journey through the wilderness"
@@ -102,6 +116,41 @@ const About = () => {
               birdwatching, or a glimpse into the island’s cultural past, Wasgamuwa promises
               an unforgettable experience.
             </p>
+
+            {/* Image Reel Section */}
+            <div className="mt-10 overflow-hidden">
+  <h3 className="text-xl font-semibold text-green-800 mb-4 text-center">
+    Explore Our Safari Moments
+  </h3>
+
+  <motion.div
+    className="flex gap-4"
+    animate={{ x: ["0%", "-50%"] }}
+    transition={{
+      repeat: Infinity,
+      duration: 30,
+      ease: "linear",
+    }}
+    style={{ width: "200%" }}
+  >
+    {/* Duplicate the image list twice for seamless loop */}
+    {[gallery1, gallery2, gallery3, gallery4, gallery1, gallery2, gallery3, gallery4].map(
+      (img, idx) => (
+        <div
+          key={idx}
+          className="flex-shrink-0 w-60 sm:w-72 rounded-lg overflow-hidden shadow-md"
+        >
+          <img
+            src={img}
+            alt={`Safari view ${idx + 1}`}
+            className="w-full h-40 sm:h-48 object-cover"
+          />
+        </div>
+      )
+    )}
+  </motion.div>
+</div>
+
           </motion.div>
 
           {/* Why Choose Us Section */}

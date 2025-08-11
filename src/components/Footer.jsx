@@ -7,6 +7,8 @@ import {
   FaTwitter,
   FaLinkedin,
   FaWhatsapp,
+  FaYoutube,
+  FaTiktok,
   FaTimes,
 } from "react-icons/fa";
 
@@ -17,9 +19,7 @@ const Footer = () => {
 
         {/* Logo and About */}
         <div className="md:w-1/3 px-4 pb-6 md:pb-0 flex flex-col items-center text-center">
-          
-
-          <p className="text-sm text-center mr-8 text-gray-300">
+          <p className="text-sm text-center  text-gray-300">
             Experience the wild beauty of Wasgamuwa with Wasgamu Safari — where nature, 
             adventure, and wildlife come together for an unforgettable journey.
           </p>
@@ -50,20 +50,27 @@ const Footer = () => {
         <div className="md:w-1/3 px-4 pt-6 md:pt-0 flex flex-col items-center text-center">
           <h3 className="text-md text-center font-semibold mb-3">Contact</h3>
           <p className="text-sm text-gray-300 leading-relaxed">
-            No. 110/1A, Cotta Road<br />
-            Colombo 08, Sri Lanka<br /><br />
-            +94 76 123 4567<br />
-            wasgamusafari@gmail.com
+            Wasgamuwa National Park Area, <br />
+            Sri Lanka<br /><br />
+            +94 71 271 0140<br />
+            Info@wasgamusafari.com
           </p>
+
           {/* Social Icons */}
-                    <div className="flex items-center mt-11 gap-1 sm:gap-3 md:gap-4 text-base sm:text-lg md:text-xl">
-                      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FaFacebookF className="cursor-pointer hover:text-gray-200" />
-                      </a>
-                      <a href="https://wa.me/123" target="_blank" rel="noopener noreferrer">
-                        <FaWhatsapp className="cursor-pointer hover:text-gray-200" />
-                      </a>
-                    </div>
+          <div className="flex items-center mt-11 gap-1 sm:gap-3 md:gap-4 text-base sm:text-lg md:text-xl">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF className="cursor-pointer hover:text-gray-200" />
+            </a>
+            <a href="https://wa.me/message/O4GIIGDENVL3M1" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp className="cursor-pointer hover:text-gray-200" />
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+              <FaYoutube className="cursor-pointer hover:text-gray-200" />
+            </a>
+            <a href="https://www.tiktok.com/@wasgamusafari.com?_t=ZS-8yfrYZ4J4JL&_r=1" target="_blank" rel="noopener noreferrer">
+              <FaTiktok className="cursor-pointer hover:text-gray-200" />
+            </a>
+          </div>
         </div>
       </div>
 

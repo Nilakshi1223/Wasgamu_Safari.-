@@ -11,57 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 bg-white shadow-md">
-      {/* Desktop Top Right Quarter Circle */}
-      <div className="hidden md:block absolute top-0 right-0 z-50">
-        <div
-          className="group w-14 h-14 md:w-20 md:h-20 bg-[#ffc000] rounded-bl-full overflow-hidden relative cursor-pointer transition-all duration-500 hover:w-48 hover:h-16"
-          style={{ transition: "all 0.5s ease" }}
-        >
-          <div
-            className="absolute inset-0"
-            style={{
-              borderBottomLeftRadius: "45%",
-              transition: "border-radius 0.5s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderBottomLeftRadius = "45%";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderBottomLeftRadius = "100%";
-            }}
-          >
-            <div className="absolute top-5 right-5 text-[#386641] text-xl group-hover:hidden">
-              <FiPhone />
-            </div>
-
-            {/* Show numbers only on md and above */}
-            <div className="flex-col items-center justify-center h-full text-[#386641] text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 whitespace-nowrap hidden md:flex">
-              <p> +94 71 271 0140</p>
-              <p> +94 71 765 4321***</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Floating Circle for Calls */}
-      <div className="md:hidden fixed bottom-4 right-4 z-50">
-        <div
-          onClick={() => setMobileCallOpen(!mobileCallOpen)}
-          className={`cursor-pointer transition-all duration-500 bg-[#ffc000] text-[#386641] shadow-lg flex items-center justify-center
-            ${mobileCallOpen ? "w-40 h-16 rounded-2xl px-4" : "w-16 h-16 rounded-full"}
-          `}
-        >
-          {mobileCallOpen ? (
-            <div className="text-xs text-center px-3 whitespace-nowrap font-semibold">
-              <p>+94 71 271 0140</p>
-              <p>+94 71 765 4321***</p>
-            </div>
-          ) : (
-            <FiPhone className="text-2xl" />
-          )}
-        </div>
-      </div>
-
+      
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}

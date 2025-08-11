@@ -1,11 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import PageBanner from "../components/PageBanner";
-import packagesImg from "../assets/safari3.webp";
+import MorningPackage from "../assets/MorningPackage.webp";
+import EveningPackage from "../assets/EveningPackage.webp";
+import FullDayPackage from "../assets/FullDayPackage.webp";
 import bgPattern from "../assets/bgImg.webp";
-import elephantIcon from "../assets/elephent1.webp"; // 👈 Imported elephant icon
+import elephantIcon from "../assets/elephent1.webp"; 
+
+import SEO from "../components/SEO";
 
 const SafariPackages = () => {
+  const whatsappURL = "https://wa.me/94779278089";
+
   const packages = [
     {
       title: "Morning Package",
@@ -18,7 +24,7 @@ const SafariPackages = () => {
         "Driver & Jeep Entrance Fee",
         "Service fee with VAT",
       ],
-      image: packagesImg,
+      image: MorningPackage,
     },
     {
       title: "Evening Package",
@@ -31,7 +37,7 @@ const SafariPackages = () => {
         "Driver + Jeep Fee",
         "Snacks & VAT Included",
       ],
-      image: packagesImg,
+      image: EveningPackage,
     },
     {
       title: "Full Day Package",
@@ -44,7 +50,7 @@ const SafariPackages = () => {
         "Spot Rare Animals",
         "Best Value Deal",
       ],
-      image: packagesImg,
+      image: FullDayPackage,
     },
   ];
 
@@ -54,10 +60,8 @@ const SafariPackages = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden border flex flex-col p-4
-           max-w-full sm:max-w-[320px] md:max-w-[380px] mx-auto"
+      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden border flex flex-col p-4 max-w-full sm:max-w-[320px] md:max-w-[380px] mx-auto"
     >
-      {/* Image with overlaid title */}
       <div className="relative w-full h-64">
         <img
           src={pkg.image}
@@ -71,24 +75,18 @@ const SafariPackages = () => {
         </div>
       </div>
 
-      {/* Features List */}
       <div className="py-4 text-sm flex-grow">
-        <ul className="space-y-1 text-gray-700">
+        <ul className="space-y-1 text-[#386641]">
           {pkg.features.map((item, idx) => (
             <li key={idx} className="flex items-start gap-2">
-              <img
-                src={elephantIcon}
-                alt="Elephant Icon"
-                className="w-6 h-6 mt-1"
-              />
+              <img src={elephantIcon} alt="Icon" className="w-6 h-6 mt-1" />
               <span>{item}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Wavy Note Ribbon */}
-      <div className="relative w-full bg-[#45433f] text-[#ffc000] text-sm text-center py-2 font-semibold shadow-md shadow-black/20 overflow-hidden mt-4">
+      <div className="relative w-full bg-[#45433f] text-[#ffc000] text-sm text-center py-2 font-semibold shadow-md shadow-[black/20] overflow-hidden mt-4">
         <svg
           className="absolute top-0 left-0 h-full w-8"
           viewBox="0 0 20 100"
@@ -108,21 +106,23 @@ const SafariPackages = () => {
         </svg>
       </div>
 
-      {/* Time */}
       <div className="text-center text-sm py-1 text-[#386641] font-medium mt-2">
         {pkg.time}
       </div>
 
-      {/* Button */}
-      <button
-        className="bg-yellow-400 text-[#386641] font-bold py-2 text-sm mt-3 hover:bg-[#a7c957] hover:text-white transition rounded-md"
+      <a
+        href={whatsappURL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3"
       >
-        BOOK NOW!
-      </button>
+        <button className="w-full bg-yellow-400 text-[#386641] font-bold py-2 text-sm hover:bg-[#a7c957] hover:text-white transition rounded-md">
+          BOOK NOW!
+        </button>
+      </a>
     </motion.div>
   );
 
-  // A reusable Section component for consistency and less repetition
   const InfoSection = ({ title, description, btnText }) => (
     <section className="relative bg-[#fdfbec] py-16 overflow-hidden mt-12">
       <div
@@ -156,15 +156,20 @@ const SafariPackages = () => {
         </motion.p>
 
         {btnText && (
-          <motion.button
+          <motion.a
+            href={whatsappURL}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.4 }}
             viewport={{ once: true }}
-            className="bg-yellow-400 hover:bg-[#a7c957] text-[#386641] hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition mt-8"
+            className="inline-block mt-8"
           >
-            {btnText}
-          </motion.button>
+            <button className="bg-yellow-400 hover:bg-[#a7c957] text-[#386641] hover:text-white font-bold px-6 py-3 rounded-full shadow-md transition">
+              {btnText}
+            </button>
+          </motion.a>
         )}
       </div>
     </section>
@@ -172,14 +177,28 @@ const SafariPackages = () => {
 
   return (
     <>
+    <SEO
+  title="Safari Packages – Wasgamu Safari"
+  description="Choose from a variety of safari packages including full-day, half-day, and customized wildlife tours in Wasgamuwa National Park."
+  keywords="Safari Packages,
+            wasgamuwa safari jeep price,
+            Wasgamuwa Safari Jeep Booking,
+            wasgamuwa bungalow booking , 
+            Wasgamuwa Jeep Tours, 
+            Jeep Safari Deals, 
+            Wasgamuwa Tours,
+            Wasgamuwa Safari Jeep Booking,
+            wasgamuwa bungalow booking "
+/>
+
       <PageBanner
         title="Safari Packages"
         subtitle="Choose the perfect adventure for you"
-        backgroundImage={packagesImg}
+        backgroundImage={MorningPackage}
       />
 
+      {/* Safari Package Cards */}
       <div className="relative py-16">
-        {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -188,8 +207,6 @@ const SafariPackages = () => {
             backgroundSize: "cover",
           }}
         />
-
-        {/* Foreground content */}
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {packages.map((pkg, idx) => (
@@ -197,13 +214,9 @@ const SafariPackages = () => {
             ))}
           </div>
         </div>
+      </div>
 
-
-
-
-
-
-{/* Bungalow Booking Section */}
+      {/* Bungalow Booking Section */}
       <InfoSection
         title="Stay Inside the Wild!"
         description={
@@ -232,17 +245,6 @@ const SafariPackages = () => {
         description="We provide safaris for the Riveston journey — the adventurous route that guests taking the Wasgamuwa journey love. Experience a unique safari with us!"
         btnText="BOOK RIVESTON SAFARI"
       />
-
-
-
-
-
-
-
-
-      </div>
-
-      
     </>
   );
 };

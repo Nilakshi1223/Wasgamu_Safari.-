@@ -15,7 +15,7 @@ const PageBanner = ({ title, subtitle }) => {
       style={{ backgroundImage: `url(${pageBannerImage})` }}
     >
       {/* Full Black Overlay */}
-      <div className="absolute inset-0 bg-black/70 flex items-center justify-center z-10">
+      <div className="absolute inset-0 bg-black/45 flex items-center justify-center z-10">
         <div className="relative text-white px-20">
           {/* Left Elephant (mirrored) */}
           <motion.img

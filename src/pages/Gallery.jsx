@@ -10,7 +10,15 @@ import safariImage3 from "../assets/safari3.webp";
 import safariImage4 from "../assets/safari4.webp";
 import safariImage5 from "../assets/safari5.webp";
 import safariImage6 from "../assets/safari6.webp";
+import safariImage7 from "../assets/safari7.webp";
+import safariImage8 from "../assets/safari8.webp";
+import safariImage9 from "../assets/safari9.webp";
+import safariImage10 from "../assets/safari10.webp";
+import safariImage11 from "../assets/safari11.webp";
+import safariImage12 from "../assets/safari12.webp";
 import packagesImg from "../assets/safari3.webp";
+
+import SEO from "../components/SEO";
 
 const Gallery = () => {
   const safariImages = [
@@ -20,10 +28,31 @@ const Gallery = () => {
     safariImage4,
     safariImage5,
     safariImage6,
+    safariImage7,
+    safariImage8,
+    safariImage9,
+    safariImage10,
+    safariImage11,
+    safariImage12,
   ];
 
   return (
     <div>
+      <SEO
+  title="Gallery – Wasgamu Safari"
+  description="Explore breathtaking wildlife and nature photography from Wasgamu Safari tours at Wasgamuwa National Park."
+  keywords="Safari Photo Gallery, 
+            Wildlife Photos, 
+            Wasgamuwa Safari
+            wasgamuwa national park photos ,
+            Bird Watching Wasgamuwa, 
+            elephants Watching Wasgamuwa, 
+            bear Watching Wasgamuwa, 
+            Elephant Safari Sri Lanka,
+            Sri Lanka Jungle Safari,
+            Wasgamuwa animals,"
+/>
+
       <PageBanner
         title="Safari Gallery"
         subtitle="Discover the wild through our safari moments."
